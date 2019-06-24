@@ -1,0 +1,190 @@
+<script>
+    function openPage(pageName,elmnt,color){
+        //hide all elements with tabcontent by default
+        var i,tabcontent,tablinks;
+        tabcontent= document.getElementsByClassName("tabcontent");
+        for(i=0;i<tabcontent.length;i++)
+            tabcontent[i].style.display="none";
+        
+        tablinks=document.getElementsByClassName("tablink");
+        for(i=0;i<tablinks.length;i++)
+            tablinks[i].style.backgroundColor="";
+        
+        document.getElementById(pageName).style.display="block";
+        elmnt.style.backgroundColor=color;
+        
+        document.getElementById("defaultOpen").click();
+    }
+    function openSubTab(pageName,elmnt,color){
+        var i,tabcontnt, tablnks;
+        
+        tabcontnt=document.getElementsByClassName("tabcontnt");
+        for(i=0;i<tabcontnt.length;i++)
+                tabcontnt[i].style.display="none";
+       
+       tablnks=document.getElementsByClassName("tablnk");
+        for(i=0;i<tablnks.length;i++)
+            tablnks[i].style.backgroundColor="";
+        
+        document.getElementById(pageName).style.display="block";
+        elmnt.style.backgroundColor=color;
+        
+        document.getElementById("defaultOpen").click();
+        
+    }
+
+    var element="";
+    let array= new Array["eggs","mangos"];
+    //figue out how to have this printed
+    
+    
+    let filledArray= new Array(10);
+
+    function add todoshandler(){
+        
+        
+        
+    }
+    
+
+</script>
+
+<html>
+    <title>tab practice</title>
+    <header>Star Tech Planners,inc.</header>
+    <style>
+     /*tab stuff*/
+        body, html{
+                height: 100%;
+                margin: 0;
+                font-family: monospace;
+            }    
+        .tablink{
+            background-color:#555;
+            color:white;
+            float:left;
+            border:none;
+            outline: none;
+            cursor:pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+            font-family: monospace;
+        }
+        .tablink:hover{
+            background-color: #777;
+        }
+        .tabcontent{
+            color:white;
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+            font-family:monospace;
+        }
+        .tabcontnt{
+            color: white;
+            display: none;
+            padding: 100px 20px;
+            height: 75%;
+            font-family: monospace;
+        }
+        .tablnk{
+            background-color: #555;
+            color: white;
+            float: right;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 15px;
+            width: 25%;
+            font-family: monospace;
+        }
+        .tablnk:hover{
+            background-color: #777;
+        }
+          
+            #Home {background-color: navy;}
+                #Monthly{background-color: #0D47A1;}
+                #Weekly{background-color: #0D47A1}
+                #Daily{background-color: #0D47A1;}
+            #List {background-color: green;}
+                #Lists{background-color: #4CAF50;}
+            #Habits{background-color: #8E24AA;}
+            #other{background-color:red;}
+            
+
+        .button{
+            color: black;
+            padding: 16px 16px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.5;
+            position: absolute;
+            bottom: 20px;
+            right: 70px;
+            width: 100px;
+            visibility: visible;
+        }
+        
+/*item.innertext="element"
+        todosList.append(newListItem) */
+        
+        
+    </style>
+    
+    <body>
+        <button class="tablink" onclick="openPage('Home', this,'navy')">Home</button>
+        <button class="tablink" onclick="openPage('List', this,'green')">List</button>
+        <button class="tablink" onclick="openPage('Habits', this,'#8E24AA')">Habits</button>
+        <button class="tablink" onclick="openPage('other',this,'red')">other</button>
+
+        <div id="Home" class="tabcontent">
+        <h3>Home Page</h3>
+            <button class="tablnk" onclick="openSubTab('Daily',this,'#0D47A1')">Daily Calendar</button>
+                <div id="Daily" class="tabcontnt">
+                <h4>daily stuff</h4>
+                    <p>this is where the daily planner will go...</p>
+                </div>
+            
+            <button class="tablnk" onclick="openSubTab('Weekly',this,'#0D46A1')">Weekly Calendar</button>
+                <div id="Weekly" class="tabcontnt">
+                <h4>weekly stuff...</h4>
+                    <p>this is where the weekly calendar will go...</p>
+                </div>
+            <button class="tablnk" onclick="openSubTab('Monthly',this,'#0D47A1')">Monthly Calendar</button>
+                <div id="Monthly" class="tabcontnt">
+                    <h4>monthly stuff</h4>
+                    <p>this is where the monthly calendar will open...</p>
+            </div>            
+        </div>
+        
+        <div id="List" class="tabcontent">
+             <div id="List" class="header">
+               <h3>List</h3>
+                 <button class="tablnk" onclick="openSubTab('Lists',this,'#4CAF50')"> Lists</button>
+                <div id="Lists" class="tabcontnt">
+                <h4>this is where the personal lists/to dos will go...</h4>
+                 <button class="button" onclick="newElement()">Add</button>
+                    <input type="text" id="input" placeholder="eggs, shampoo,...">
+                
+                 </div>  
+            </div>
+        </div>
+        
+        <div id="Habits" class="tabcontent">
+        <h3>Habits</h3>
+        <p>This is where you will keep track of your habits...</p>
+        </div>
+        
+        <div id="other" class="tabcontent">
+        <h3>other</h3>
+        <p>put this to use later</p>
+        </div>
+        
+    
+    
+    </body>
+
+</html>
+
